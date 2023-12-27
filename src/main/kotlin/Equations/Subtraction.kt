@@ -1,0 +1,4 @@
+package Equations
+
+class Subtraction {
+}
