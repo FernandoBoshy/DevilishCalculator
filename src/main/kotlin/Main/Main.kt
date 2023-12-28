@@ -19,17 +19,10 @@ import java.lang.NumberFormatException
 var gamestart = GameStart()
 
 fun main(args: Array<String>) {
-
-    var equationList = arrayListOf<Operators>()
     while (true){
-        for(equation in 0..20){
-            var operators: Operators = Operators(0,0,0)
-            equationList.add(operators)
-        }
-
-
+        var equationList = sortEquations()
         var level: Int = chooseLevel()
-        gamestart.startGame(level)
+        gamestart.startGame(level, equationList)
         break
     }
 }
@@ -43,12 +36,12 @@ fun chooseLevel(): Int {
     println("> 4 < = Hard")
     println("> 5 < = Very Hard")
 
-    level = validaInt(readln())
+    level = intValidation(readln())
 
     return level
 }
 
-fun validaInt(value: String): Int{
+fun intValidation(value: String): Int{
     try {
         var returnValue = value.toInt()
         return returnValue
@@ -57,4 +50,19 @@ fun validaInt(value: String): Int{
         println("Invalid Number")
         return 0
     }
+}
+
+fun sortEquations(): ArrayList<Operators>{
+
+    var equationList: ArrayList<Operators> = ArrayList<Operators>()
+
+    for(equation in 0..20){
+        var operators: Operators = Operators(0,0,0)
+        var operation = operators.adition()
+        operators.number1 = operation[0]
+        operators.number2 = operation[1]
+        operators.result = operation[2]
+        equationList.add(operators)
+    }
+    return equationList
 }
