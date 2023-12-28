@@ -7,12 +7,14 @@ var operation: Operators = Operators(0,0,0)
 class GameStart {
     fun startGame(level: Int, equationList: ArrayList<Operators>){
         for(nBack in 0..level){
-            println("${equationList[nBack].number1} + ${equationList[nBack].number2} = ?")
+            println("(${nBack + 1})|${equationList[nBack].number1} + ${equationList[nBack].number2} = ?")
             printLoad()
         }
-        for((equation, x) in level..equationList.size){
-            println("${equation.number1} + ${equation.number2} = ?")
-            printLoad()
+        for((x, equation) in equationList.withIndex()){
+            if(x > level){
+                var resposta = readln()
+                println("(${x + 1})|${equation.number1} + ${equation.number2} = ?")
+            }
         }
 
 
