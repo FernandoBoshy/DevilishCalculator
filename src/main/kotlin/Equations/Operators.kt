@@ -29,11 +29,3 @@ class Operators(number1: Int, number2: Int, result: Int) {
         return list
     }
 }
-
-fun isEven(x: Int): Boolean {
-    if (x % 2 == 0)
-        return true
-    else{
-        return false
-    }
-}
