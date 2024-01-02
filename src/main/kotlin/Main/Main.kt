@@ -64,8 +64,16 @@ fun sortEquations(): ArrayList<Operators>{
     var equationList: ArrayList<Operators> = ArrayList<Operators>()
 
     for(equation in 0..19){
-        var operators: Operators = Operators(0,0,0)
-        var operation = operators.adition()
+        var randOp = (0..1).random()
+        var operators: Operators = Operators(0,0,0, 0)
+        var operation: ArrayList<Int>
+
+        if(randOp % 2 == 0){
+            operation = operators.adition()
+        } else {
+            operation = operators.subtraction()
+        }
+
         operators.number1 = operation[0]
         operators.number2 = operation[1]
         operators.result = operation[2]
