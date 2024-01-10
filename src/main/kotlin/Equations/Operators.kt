@@ -8,7 +8,6 @@ class Operators(number1: Int, number2: Int, result: Int, id: Int) {
     var number2 = 0
     var id = 0
 
-
     fun adition(): ArrayList<Int>{
         id = 0
         var list: ArrayList<Int> = ArrayList()
@@ -32,6 +31,7 @@ class Operators(number1: Int, number2: Int, result: Int, id: Int) {
         list.add(number2)
         list.add(result)
         list.add(id)
+
         return list
     }
 }

@@ -8,11 +8,12 @@ class GameStart {
     var correctAnswer: Int = 0
     var wrongAnswer: Int = 0
 
-    fun startGame(level: Int, equationList: ArrayList<Operators>) {
+    fun startGame(level: Int, equationList: ArrayList<Operators>, operationQuantity: Int) {
                             //////////////////
         correctAnswer = 0  //  Score reset //
         wrongAnswer = 0   //////////////////
 
+        //
         for (nBack in 0..level) {
 
             printLoad()
@@ -26,7 +27,7 @@ class GameStart {
 
         }
         for ((x, equation) in equationList.withIndex()) {
-            if (x <= 18 - level) {
+            if (x <= operationQuantity - 2 - level) {
                 print("(A:${x + 1}): ")
                 var answer = intValidation(readln())
                 printSpaces()

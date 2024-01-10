@@ -8,12 +8,14 @@ var gamestart = GameStart()
 fun main(args: Array<String>) {
     while (true){
 
-        var equationList = sortEquations()
+        var operationQuantity: Int = 20
+
+        var equationList = sortEquations(operationQuantity)
         var level: Int = chooseLevel()
 
         when(level){
             0 ->    break
-            1, 2, 3, 4, 5 -> gamestart.startGame(level, equationList)
+            1, 2, 3, 4, 5 -> gamestart.startGame(level, equationList, operationQuantity)
             else -> println("invalid. . .")
         }
     }
@@ -46,11 +48,11 @@ fun intValidation(value: String): Int{
     }
 }
 
-fun sortEquations(): ArrayList<Operators>{
+fun sortEquations(operationQuantity: Int): ArrayList<Operators>{
 
     var equationList: ArrayList<Operators> = ArrayList<Operators>()
 
-    for(equation in 0..19){
+    for(equation in 0..operationQuantity - 1){
         var randOp = (0..1).random()
         var operators: Operators = Operators(0,0,0, 0)
         var operation: ArrayList<Int>
